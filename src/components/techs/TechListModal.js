@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux';
 import Preloader from '../layout/Preloader';
+import PropTypes from 'prop-types';
 import { getTechs } from '../../actions/techActions';
 import TechItem from './TechItem';
 
@@ -24,6 +25,10 @@ const TechListModal = ({tech, getTechs}) => {
             </div>
         </div>
     )
+}
+TechListModal.propTypes = {
+    tech: PropTypes.object.isRequired,
+    getTechs: PropTypes.func.isRequired,
 }
 const mapStateToProps = state => ({
     tech: state.tech

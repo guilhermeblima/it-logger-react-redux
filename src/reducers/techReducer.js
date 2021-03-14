@@ -1,8 +1,9 @@
-import { GET_TECHS } from "../actions/types";
+import { ADD_TECH, GET_TECHS } from "../actions/types";
 
 const initialState = {
     techs: [], 
-    loading: false
+    loading: false, 
+    error: null
 }
 
 export default (state = initialState, action) => {
@@ -12,6 +13,11 @@ export default (state = initialState, action) => {
                 ...state,
                 techs: action.payload,
                 loading: false
+            };
+        case ADD_TECH: 
+            return{
+                ...state,
+                techs: [...state.techs, action.payload]
             }
         default:
             return state;
