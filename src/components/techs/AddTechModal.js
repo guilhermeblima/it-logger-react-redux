@@ -11,14 +11,9 @@ const AddTechModal = ({addTech}) => {
         if(firstName === '' || lastName === ''){
             M.toast({html: 'Please enter the First Name and Last Name'});
         }else{
-            const newTech = {
-                firstName, 
-                lastName
-            }
+            addTech({firstName, lastName});
 
-            addTech(newTech);
-
-            M.toast({html: 'New Technician added successfully'});
+            M.toast({html: `${firstName} ${lastName} has been added.`});
 
             // Clear Fields
             setFirstName('');
